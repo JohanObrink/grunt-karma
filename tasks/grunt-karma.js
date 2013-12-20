@@ -31,6 +31,11 @@ module.exports = function(grunt) {
       data.configFile = grunt.template.process(data.configFile);
     }
 
+    // flatten files if needed
+    if(data.files) {
+      data.files = _.flatten(data.files);
+    }
+
     //support `karma run`, useful for grunt watch
     if (this.flags.run){
       runner.run(data, done);
